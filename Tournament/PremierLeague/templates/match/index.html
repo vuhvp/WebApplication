@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <table class="table table-borderless">
+    <tbody>
+      {% for match in matches %}
+      <tr class="bg-info text-white fw-bold">
+        <!-- Source code obtained from medmunds (2011), https://stackoverflow.com/a/7749024 -->
+        <td colspan="3">{{match.day | date:"l, M d Y"}}</td>
+      </tr>
+      {% for item in match.items %}
+      <tr>
+        <!-- Source code obtained from medmunds (2011), https://stackoverflow.com/a/7749024 -->
+        <td class="text-center">{{item.match_time | date:"H:i"}}</td>
+        <td>
+          <div class="row">
+            <div class="col text-end">{{item.home_team.name }}</div>
+            <div class="col-auto">
+              <span class="badge bg-secondary">{{item.result.home_team_goal }} -
+                {{item.result.away_team_goal}}</span>
+            </div>
+            <div class="col">{{item.away_team.name }}</div>
+          </div>
+        </td>
+        <td>
+          <!-- Source code obtained from andergmartins (2016), https://stackoverflow.com/a/35518016 -->
+          <a href="{% url 'match_detail' match_id=item.id%}" class="link-secondary">Details</a>
+        </td>
+      </tr>
+      {% endfor %}
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

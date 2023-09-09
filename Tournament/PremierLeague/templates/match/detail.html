@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="w-75 mx-auto">
+  <div class="container">
+    <h1 class="text-center mb-5">Match Summary</h1>
+    <div class="row">
+      <div class="col-auto text-center">
+        <h3>{{match.home_team.name}}</h3>
+        <!-- Source code obtained from Dennis Ivy (2020), https://youtu.be/aNk2CAkHvlE -->
+        <img src="{{match.home_team.logo_url.url}}" />
+      </div>
+      <div class="col">
+        <h3 class="text-center">
+          {% if match.result.home_team_goal > match.result.away_team_goal %}
+          <span class="text-success">{{match.result.home_team_goal}}</span>
+          :
+          <span class="text-danger">{{match.result.away_team_goal}}</span>
+          {% elif match.result.home_team_goal < match.result.away_team_goal %} <span class="text-danger">
+            {{match.result.home_team_goal}}</span>
+            :
+            <span class="text-success">{{match.result.away_team_goal}}</span>
+            {% else %}
+            <span>{{match.result.home_team_goal}}</span>
+            :
+            <span>{{match.result.away_team_goal}}</span>
+            {% endif %}
+        </h3>
+        <table class="table table-borderless">
+          <tr>
+            <td class="text-end w-50">Half time</td>
+            <td class="text-start w-50">
+              {{match.result.home_team_halftime_goal}} :
+              {{match.result.away_team_halftime_goal}}
+            </td>
+          </tr>
+          <tr>
+            <td class="text-end w-50">Full time</td>
+            <td class="text-start w-50">
+              {{match.result.home_team_goal}} : {{match.result.away_team_goal}}
+            </td>
+          </tr>
+          <tr>
+            <td class="text-end w-50">Start time</td>
+            <!-- Source code obtained from medmunds (2011), https://stackoverflow.com/a/7749024 -->
+            <td class="text-start w-50">{{match.match_time | date:"H:i"}}</td>
+          </tr>
+          <tr>
+            <td class="text-end w-50">Date</td>
+            <td class="text-start w-50">
+              <!-- Source code obtained from medmunds (2011), https://stackoverflow.com/a/7749024 -->
+              {{match.match_time | date:"l, M d Y"}}
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-auto text-center">
+        <h3>{{match.away_team.name}}</h3>
+        <!-- Source code obtained from Dennis Ivy (2020), https://youtu.be/aNk2CAkHvlE -->
+        <img src="{{match.away_team.logo_url.url}}" />
+      </div>
+    </div>
+
+    <h1 class="text-center mb-5">Match Statistic</h1>
+    <table class="table text-center">
+      <tbody>
+        <tr>
+          <td>{{match.home_team_statistic.open_play}}</td>
+          <td>Open Play</td>
+          <td>{{match.away_team_statistic.open_play}}</td>
+        </tr>
+        <tr>
+          <td>{{match.home_team_statistic.set_piece}}</td>
+          <td>Set Piece</td>
+          <td>{{match.away_team_statistic.set_piece}}</td>
+        </tr>
+        <tr>
+          <td>{{match.home_team_statistic.counter_attack}}</td>
+          <td>Counter Attack</td>
+          <td>{{match.away_team_statistic.counter_attack}}</td>
+        </tr>
+        <tr>
+          <td>{{match.home_team_statistic.penalty}}</td>
+          <td>Penalty</td>
+          <td>{{match.away_team_statistic.penalty}}</td>
+        </tr>
+        <tr>
+          <td>{{match.home_team_statistic.own_goal}}</td>
+          <td>Own Goal</td>
+          <td>{{match.away_team_statistic.own_goal}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

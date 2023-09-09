@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="overall-tab" data-bs-toggle="tab" data-bs-target="#overall" type="button"
+        role="tab" aria-controls="overall" aria-selected="true">Overall</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+        aria-controls="home" aria-selected="false">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="away-tab" data-bs-toggle="tab" data-bs-target="#away" type="button" role="tab"
+        aria-controls="away" aria-selected="false">Away</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="overall" role="tabpanel" aria-labelledby="overall-tab">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Team</td>
+            <td>Played</td>
+            <td>Wins</td>
+            <td>Draws</td>
+            <td>Losses</td>
+            <td>Goal For</td>
+            <td>Goal Against</td>
+            <td>Point</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Source code obtained from msc (2013), https://stackoverflow.com/a/14857278 -->
+          {% for team in teams|dictsort:"overall_statistic.position" %}
+          <tr data-bs-toggle="collapse" data-bs-target="#collapseOverall{{team.id}}" aria-expanded="true"
+            aria-controls="collapseOverall{{team.id}}" role="button">
+            <td>{{team.overall_statistic.position}}</td>
+            <td>{{team.name}}</td>
+            <td>{{team.overall_statistic.total_matches}}</td>
+            <td>{{team.overall_statistic.wins}}</td>
+            <td>{{team.overall_statistic.draws}}</td>
+            <td>{{team.overall_statistic.losses}}</td>
+            <td>{{team.overall_statistic.goal_for}}</td>
+            <td>{{team.overall_statistic.goal_against}}</td>
+            <td>{{team.overall_statistic.point}}</td>
+          </tr>
+          <tr>
+            <td colspan="9" class="p-0">
+              <div id="collapseOverall{{team.id}}" class="accordion-collapse collapse">
+                <div class="card p-3">
+                  <div class="row g-0 align-items-center">
+                    <div class="col-2">
+                      <!-- Source code obtained from Dennis Ivy (2020), https://youtu.be/aNk2CAkHvlE -->
+                      <img src="{{team.logo_url.url}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-10">
+                      <div class="card-body">
+                        <h5 class="card-title">{{team.name}}</h5>
+                        <p class="card-text">{{team.location}}</p>
+                        <p class="card-text">{{team.email_address}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Team</td>
+            <td>Played</td>
+            <td>Wins</td>
+            <td>Draws</td>
+            <td>Losses</td>
+            <td>Goal For</td>
+            <td>Goal Against</td>
+            <td>Point</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Source code obtained from msc (2013), https://stackoverflow.com/a/14857278 -->
+          {% for team in teams|dictsort:"home_statistic.position" %}
+          <tr data-bs-toggle="collapse" data-bs-target="#collapseHome{{team.id}}" aria-expanded="true"
+            aria-controls="collapseHome{{team.id}}" role="button">
+            <td>{{team.home_statistic.position}}</td>
+            <td>{{team.name}}</td>
+            <td>{{team.home_statistic.total_matches}}</td>
+            <td>{{team.home_statistic.wins}}</td>
+            <td>{{team.home_statistic.draws}}</td>
+            <td>{{team.home_statistic.losses}}</td>
+            <td>{{team.home_statistic.goal_for}}</td>
+            <td>{{team.home_statistic.goal_against}}</td>
+            <td>{{team.home_statistic.point}}</td>
+          </tr>
+          <tr>
+            <td colspan="9" class="p-0">
+              <div id="collapseHome{{team.id}}" class="accordion-collapse collapse">
+                <div class="card p-3">
+                  <div class="row g-0 align-items-center">
+                    <div class="col-2">
+                      <!-- Source code obtained from Dennis Ivy (2020), https://youtu.be/aNk2CAkHvlE -->
+                      <img src="{{team.logo_url.url}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-10">
+                      <div class="card-body">
+                        <h5 class="card-title">{{team.name}}</h5>
+                        <p class="card-text">{{team.location}}</p>
+                        <p class="card-text">{{team.email_address}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane fade" id="away" role="tabpanel" aria-labelledby="away-tab">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>Team</td>
+            <td>Played</td>
+            <td>Wins</td>
+            <td>Draws</td>
+            <td>Losses</td>
+            <td>Goal For</td>
+            <td>Goal Against</td>
+            <td>Point</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Source code obtained from msc (2013), https://stackoverflow.com/a/14857278 -->
+          {% for team in teams|dictsort:"away_statistic.position" %}
+          <tr data-bs-toggle="collapse" data-bs-target="#collapseAway{{team.id}}" aria-expanded="true"
+            aria-controls="collapseAway{{team.id}}" role="button">
+            <td>{{team.away_statistic.position}}</td>
+            <td>{{team.name}}</td>
+            <td>{{team.away_statistic.total_matches}}</td>
+            <td>{{team.away_statistic.wins}}</td>
+            <td>{{team.away_statistic.draws}}</td>
+            <td>{{team.away_statistic.losses}}</td>
+            <td>{{team.away_statistic.goal_for}}</td>
+            <td>{{team.away_statistic.goal_against}}</td>
+            <td>{{team.away_statistic.point}}</td>
+          </tr>
+          <tr>
+            <td colspan="9" class="p-0">
+              <div id="collapseAway{{team.id}}" class="accordion-collapse collapse">
+                <div class="card p-3">
+                  <div class="row g-0 align-items-center">
+                    <div class="col-2">
+                      <!-- Source code obtained from Dennis Ivy (2020), https://youtu.be/aNk2CAkHvlE -->
+                      <img src="{{team.logo_url.url}}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-10">
+                      <div class="card-body">
+                        <h5 class="card-title">{{team.name}}</h5>
+                        <p class="card-text">{{team.location}}</p>
+                        <p class="card-text">{{team.email_address}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

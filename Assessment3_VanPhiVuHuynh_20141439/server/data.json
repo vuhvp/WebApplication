@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "flightCode": "VH-XFA",
+    "departure": "Perth",
+    "departureCountry": "Australia",
+    "arrival": "Dubai",
+    "arrivalCountry": "United Arab Emirates",
+    "departureTime": "20 June 2022 22:20",
+    "travelTime": "11:00",
+    "gate": 11,
+    "airplane": "Emirates",
+    "aircraft": "Boeing 777",
+    "status": "Scheduled"
+  },
+  {
+    "id": 2,
+    "flightCode": "VH-XFB",
+    "departure": "Perth",
+    "departureCountry": "Australia",
+    "arrival": "Melbourne",
+    "arrivalCountry": "Australia",
+    "departureTime": "20 June 2022 1:55",
+    "travelTime": "3:30",
+    "gate": 12,
+    "airplane": "Jetstar",
+    "aircraft": "Airbus A320",
+    "status": "Scheduled"
+  },
+  {
+    "id": 3,
+    "flightCode": "VH-XFC",
+    "departure": "Perth",
+    "departureCountry": "Australia",
+    "arrival": "Doha",
+    "arrivalCountry": "Qatar",
+    "departureTime": "20 June 2022 23:00",
+    "travelTime": "11:25",
+    "gate": 13,
+    "airplane": "Qatar Airways",
+    "aircraft": "Boeing 787",
+    "status": "Scheduled"
+  },
+  {
+    "id": 4,
+    "flightCode": "VH-XFD",
+    "departure": "Perth",
+    "departureCountry": "Australia",
+    "arrival": "Singapore",
+    "arrivalCountry": "Singapore",
+    "departureTime": "20 June 2022 17:10",
+    "travelTime": "5:25",
+    "gate": 14,
+    "airplane": "Singapore Airlines",
+    "aircraft": "Airbus A350",
+    "status": "Scheduled"
+  },
+  {
+    "id": 5,
+    "flightCode": "VH-XFE",
+    "departure": "Perth",
+    "departureCountry": "Australia",
+    "arrival": "Sydney",
+    "arrivalCountry": "Australia",
+    "departureTime": "20 June 2022 13:15",
+    "travelTime": "4:20",
+    "gate": 15,
+    "airplane": "Virgin Australia",
+    "aircraft": "Boeing 737",
+    "status": "Scheduled"
+  }
+]
